@@ -1,0 +1,107 @@
+#include "Weg.h"
+#include"Fahrzeug.h"
+#include<list>
+#include<iomanip>
+#include <iostream>
+#include"Fahrausnahme.h"
+using namespace std;
+Weg::Weg()
+	:Simulationsobjekt(), p_dLeange(0), p_eTempolimit(Tempolimit::Autobahn)
+{
+	cout << "Weg erzeugt:" << endl;
+}
+
+
+Weg::Weg(const string pname, double pdleange, Tempolimit ptempolimit)
+	: Simulationsobjekt(pname), p_dLeange(pdleange), p_eTempolimit(ptempolimit)
+{
+	cout << "Weg erzeugt:" << endl;
+}
+
+Weg::~Weg()
+{
+}
+
+
+void Weg::vAusgeben(ostream& o)
+{
+	//Simulationsobjekt::vAusgeben(o);
+	cout<< setiosflags(ios::left) << setw(6) << p_iID
+		<< setw(23) << p_sName;
+	o << setiosflags(ios::fixed) << setprecision(2)
+		<< ":" << setw(20) << p_dLeange<<"(";
+	//list<unique_ptr<Fahrzeug>>::iterator i;
+	for (auto i= p_pFahrzeuge.begin(); i != p_pFahrzeuge.end(); i++)
+	{
+		o << (*i)->p_sName << "\t";
+	}
+	o << ")";
+
+}
+
+void Weg::vKopf()
+{
+	cout << setiosflags(ios::left);
+	cout << setw(6) << "ID" << "|" << setw(10) << "Name" << "|" << setw(20) << "GLaenge"
+		<< "|" << setw(16) << "Fahrzeuge" << endl;
+	cout << "-------------------------------------------------------------------------------------------------" << endl;
+}
+
+void Weg::vSimulieren()
+{
+	list<unique_ptr<Fahrzeug>>::iterator i;
+	for (i = p_pFahrzeuge.begin(); i != p_pFahrzeuge.end(); )
+	{
+		try
+		{
+			(*i)->vSimulieren();
+			i++;
+		}
+		catch (Fahrausnahme* pfahrausnahme)
+		{
+			i++;
+			pfahrausnahme->vBearbeiten();
+		}
+		
+	}
+}
+
+void Weg::vAusgeben()
+{
+	Simulationsobjekt::vAusgeben();
+	cout << setiosflags(ios::fixed) << setprecision(2)
+		<< ":" << setw(20) << p_dLeange << "(";
+	list<unique_ptr<Fahrzeug>>::iterator i;
+	for (i = p_pFahrzeuge.begin(); i != p_pFahrzeuge.end(); i++)
+	{
+	    cout <<(*i)->p_sName<<"\t";
+	}
+	cout<< ")";
+}
+
+double Weg::getTempolimit()
+{
+	if (p_eTempolimit == Tempolimit::Innerorts)
+		return 50;
+	else if (p_eTempolimit == Tempolimit::Landstrasse)
+		return 100;
+	else if (p_eTempolimit == Tempolimit::Autobahn)
+		return numeric_limits<int>::max();
+}
+
+double Weg::getLaenge()
+{
+	return p_dLeange;
+}
+
+void Weg::vAnnahme(unique_ptr<Fahrzeug> fahrzeug_ptr)//fahrende fahrzeug
+{
+	fahrzeug_ptr->vNeueStrecke(*this);
+	p_pFahrzeuge.push_back(move(fahrzeug_ptr));	
+}
+
+void Weg::vAnnahme(unique_ptr<Fahrzeug> fahrzeug_ptr, double pdstart)//parkende fahrzeug
+{
+	fahrzeug_ptr->vNeueStrecke(*this, pdstart);
+	p_pFahrzeuge.push_front(move(fahrzeug_ptr));
+}
