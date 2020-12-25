@@ -2,6 +2,7 @@
 #include<iostream>
 #include<iomanip>
 #include"Weg.h"
+#include"SimuClient.h"
 
 extern double dGlobaleZeit;
 /*
@@ -82,6 +83,8 @@ void PKW::vSimulieren()
 	}
 	else//der Tanke nicht genug
 		p_dZeit = dGlobaleZeit;
+	Weg* weg = p_pVerhalten->get_weg();
+	vZeichen(*weg);
 }
 
 
@@ -117,6 +120,11 @@ double PKW::dGeschwindigkeit()
 	else
 		return p_dMaxGeschwindigkeit;
 	
+}
+void PKW::vZeichen(const Weg& weg) const
+{
+	//bZeichnePKW("F1", "Weg1", 0.1, 50, 100);
+	bZeichnePKW(p_sName, weg.sGetName(), p_dGesamtStrecke / weg.dGetLeange(), p_dMaxGeschwindigkeit, p_dTankinhalt);
 }
 ostream& operator<<(ostream& o, PKW& f)
 {

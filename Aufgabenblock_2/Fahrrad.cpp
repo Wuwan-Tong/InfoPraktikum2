@@ -1,4 +1,6 @@
 #include "Fahrrad.h"
+#include"Weg.h"
+#include"SimuClient.h"
 #include<iomanip>
 #include<iostream>
 
@@ -36,7 +38,7 @@ Fahrrad::~Fahrrad()
 /*
 * Die Funktion berechnet die aktuelle Geschwindigkeit von Fahrrad
 */
-double Fahrrad::dGeschwindigkeit()
+double Fahrrad::dGeschwindigkeit()const
 {
     double dAktuellGschwindigkeit = p_dMaxGeschwindigkeit;
     dAktuellGschwindigkeit = p_dMaxGeschwindigkeit * pow(0.9, floor(p_dGesamtStrecke / 20));
@@ -44,6 +46,13 @@ double Fahrrad::dGeschwindigkeit()
         dAktuellGschwindigkeit = 12;
     return dAktuellGschwindigkeit;
 }
+
+void Fahrrad::vZeichen(const Weg& weg) const
+{
+    double geschwindigkeit = dGeschwindigkeit();
+    bZeichneFahrrad(p_sName, weg.sGetName(), p_dGesamtStrecke / weg.dGetLeange(), geschwindigkeit);
+}
+
 
 
 

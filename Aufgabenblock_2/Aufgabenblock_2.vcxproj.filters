@@ -89,5 +89,14 @@
     <ClInclude Include="Streckenende.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SimuClient.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="SimuClient.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimuClient.dll" />
   </ItemGroup>
 </Project>

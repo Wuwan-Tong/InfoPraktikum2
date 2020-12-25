@@ -9,6 +9,7 @@ public:
 	Fahrrad(string name);
 	Fahrrad(string name, const double maxgeschwindigkeit);
 	~Fahrrad();
-	double dGeschwindigkeit()override;
+	double dGeschwindigkeit()const;
+	void vZeichen(const Weg&)const override;
 };
 

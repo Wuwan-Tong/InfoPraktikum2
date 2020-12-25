@@ -105,3 +105,13 @@ void Weg::vAnnahme(unique_ptr<Fahrzeug> fahrzeug_ptr, double pdstart)//parkende 
 	fahrzeug_ptr->vNeueStrecke(*this, pdstart);
 	p_pFahrzeuge.push_front(move(fahrzeug_ptr));
 }
+
+string Weg::sGetName() const
+{
+	return p_sName;
+}
+
+double Weg::dGetLeange() const
+{
+	return p_dLeange;
+}

@@ -3,6 +3,7 @@
 #include"PKW.h"
 #include"Weg.h"
 #include"Tempolimit.h"
+#include"SimuClient.h"
 #include<iostream>
 #include<memory>
 #include<vector>
@@ -24,11 +25,8 @@ int main()
 	//vAufgabe_1a();
 	//vAufgabe_2();
 	//vAufgabe_3();
-	/*
-	PKW* aPKW=new PKW("n1", 11.1, 1.0, 200);
-	Fahrrad* aFahrrad=new Fahrrad("n2", 22.2);
-	cout << *aPKW << endl << *aFahrrad << endl;
-	*/
+
+	//vAufgabe_4();
 	//vAufgabe_5();
 	vAufgabe_6();
 
@@ -213,7 +211,7 @@ void vAufgabe_5()
 void vAufgabe_6()
 {
 	unique_ptr<Weg> weg1 = make_unique<Weg>("Weg1", 500, Tempolimit::Innerorts);
-	unique_ptr<Weg> weg2 = make_unique<Weg>("Weg2", 600, Tempolimit::Autobahn);
+	unique_ptr<Weg> weg2 = make_unique<Weg>("Weg2", 500, Tempolimit::Autobahn);
 	
 	unique_ptr<Fahrzeug> f1 = make_unique<PKW>("F1", 50, 1, 200);
 	unique_ptr<Fahrzeug> f2 = make_unique<PKW>("F2", 200, 1, 200);
@@ -237,7 +235,17 @@ void vAufgabe_6()
 
 	weg1->vKopf();
 	cout << *weg1 << endl << *weg2 << endl;
-	for (dGlobaleZeit = 0; dGlobaleZeit < 5; dGlobaleZeit += 0.5) 
+
+	bInitialisiereGrafik(800, 500);
+	vSetzeZeit(dGlobaleZeit);
+	int feld[] = { 700 ,250 ,100 ,250 };
+	bZeichneStrasse("Weg1", "Weg2", 500, 2, feld);
+	bZeichnePKW("F1", "Weg1", 0.1, 50, 100);
+	bZeichneFahrrad("Fahrrad1", "Weg1", 0.2, 30);
+	bZeichnePKW("BMW1", "Weg2", 0.3, 50, 100);
+	bZeichneFahrrad("Fahrrad3", "Weg2", 0.4, 30);
+
+	for (dGlobaleZeit = 0; dGlobaleZeit < 15; dGlobaleZeit += 0.5) 
 	{
 		cout << "GlobaleZeit:" << dGlobaleZeit << endl;
 		weg1->vSimulieren();
@@ -246,6 +254,7 @@ void vAufgabe_6()
 		weg2->vSimulieren();
 		weg2->vAusgeben();
 		cout << endl;
+		vSleep(100);
 	}
 
 }

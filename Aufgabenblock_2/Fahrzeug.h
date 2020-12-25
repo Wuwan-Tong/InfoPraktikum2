@@ -31,6 +31,7 @@ public:
 	double dGetAbschnittStrecke();
 	void vNeueStrecke(Weg&);
 	void vNeueStrecke(Weg&, double);
+	virtual void vZeichen(const Weg&)const;
 
 	friend class Parken;
 	friend class Weg;

@@ -160,11 +160,18 @@
     <ClInclude Include="Losfahren.h" />
     <ClInclude Include="Parken.h" />
     <ClInclude Include="PKW.h" />
+    <ClInclude Include="SimuClient.h" />
     <ClInclude Include="Streckenende.h" />
     <ClInclude Include="Tempolimit.h" />
     <ClInclude Include="Simulationsobjekt.h" />
     <ClInclude Include="Verhalten.h" />
     <ClInclude Include="Weg.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="SimuClient.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimuClient.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,5 +17,6 @@ public:
 	void vAusgeben();
 	void vAusgeben(ostream&)override;
 	double dGeschwindigkeit();
+	void vZeichen(const Weg&)const override;
 };
 ostream& operator<<(ostream& o, PKW& f);

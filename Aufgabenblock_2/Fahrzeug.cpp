@@ -112,6 +112,8 @@ void Fahrzeug::vSimulieren()
 	p_dAbschnittStrecke += dTempStrecke;
 	p_dGesamtZeit += dZeitIntervall;
 	p_dZeit = dGlobaleZeit;
+	Weg* weg = p_pVerhalten->get_weg();
+	vZeichen(*weg);
 }
 
 
@@ -176,4 +178,8 @@ void Fahrzeug::vNeueStrecke(Weg& weg, double pdstart)
 	this->p_dAbschnittStrecke = 0;
 	this->p_dGesamtZeit = 0;
 	this->p_dZeit = dGlobaleZeit;
+}
+
+void Fahrzeug::vZeichen(const Weg&) const
+{
 }

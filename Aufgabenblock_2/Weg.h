@@ -26,4 +26,7 @@ public:
 	void vAnnahme(unique_ptr<Fahrzeug>);
 	void vAnnahme(unique_ptr<Fahrzeug>,double);
 	friend class Streckenende;
+	string sGetName()const;
+	double dGetLeange()const;
+
 };
