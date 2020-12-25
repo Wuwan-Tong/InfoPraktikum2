@@ -3,6 +3,7 @@
 #include<list>
 #include<memory>
 #include"Tempolimit.h"
+#include"vertagt_liste - Vorlage.h"
 
 class Fahrzeug;
 class Weg:public Simulationsobjekt
@@ -10,7 +11,8 @@ class Weg:public Simulationsobjekt
 private:
 	
 	double p_dLeange;//lange in km
-	list<unique_ptr<Fahrzeug>> p_pFahrzeuge;//fahrzeuge aktuelle auf dem Weg befinden
+	//list<unique_ptr<Fahrzeug>> p_pFahrzeuge;//fahrzeuge aktuelle auf dem Weg befinden
+	vertagt::VListe<unique_ptr<Fahrzeug>> p_pFahrzeuge;
 	Tempolimit p_eTempolimit;//max. zulaessige Geschwindigkeit
 	
 public:
@@ -28,5 +30,6 @@ public:
 	friend class Streckenende;
 	string sGetName()const;
 	double dGetLeange()const;
+	unique_ptr<Fahrzeug> pAbgabe(const Fahrzeug&);
 
 };

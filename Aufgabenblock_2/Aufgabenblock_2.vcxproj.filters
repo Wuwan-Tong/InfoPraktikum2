@@ -92,6 +92,12 @@
     <ClInclude Include="SimuClient.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="vertagt_aktion - Vorlage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="vertagt_liste - Vorlage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="SimuClient.lib" />

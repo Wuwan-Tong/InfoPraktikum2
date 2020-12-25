@@ -15,4 +15,6 @@ void Losfahren::vBearbeiten()
 	p_pWeg.vAnnahme(move(fzg));
 	*/
 	p_pFahrzeug.vNeueStrecke(p_pWeg);
+	unique_ptr<Fahrzeug> pfzg = p_pWeg.pAbgabe(p_pFahrzeug);
+	p_pWeg.vAnnahme(move(pfzg));
 }

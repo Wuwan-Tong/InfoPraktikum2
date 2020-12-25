@@ -4,10 +4,12 @@
 #include"Weg.h"
 #include"Tempolimit.h"
 #include"SimuClient.h"
+#include"vertagt_liste - Vorlage.h"
 #include<iostream>
 #include<memory>
 #include<vector>
 #include<limits>
+#include<random>
 
 using namespace std;
 void vAufgabe_1();
@@ -17,6 +19,7 @@ void vAufgabe_3();
 void vAufgabe_4();
 void vAufgabe_5();
 void vAufgabe_6();
+void vAufgabe_6a();
 
 extern double dGlobaleZeit = 0.0;
 int main()
@@ -29,6 +32,7 @@ int main()
 	//vAufgabe_4();
 	//vAufgabe_5();
 	vAufgabe_6();
+	//vAufgabe_6a();
 
 
 
@@ -240,10 +244,10 @@ void vAufgabe_6()
 	vSetzeZeit(dGlobaleZeit);
 	int feld[] = { 700 ,250 ,100 ,250 };
 	bZeichneStrasse("Weg1", "Weg2", 500, 2, feld);
-	bZeichnePKW("F1", "Weg1", 0.1, 50, 100);
-	bZeichneFahrrad("Fahrrad1", "Weg1", 0.2, 30);
-	bZeichnePKW("BMW1", "Weg2", 0.3, 50, 100);
-	bZeichneFahrrad("Fahrrad3", "Weg2", 0.4, 30);
+	//bZeichnePKW("F1", "Weg1", 0.1, 50, 100);
+	//bZeichneFahrrad("Fahrrad1", "Weg1", 0.2, 30);
+	//bZeichnePKW("BMW1", "Weg2", 0.3, 50, 100);
+	//bZeichneFahrrad("Fahrrad3", "Weg2", 0.4, 30);
 
 	for (dGlobaleZeit = 0; dGlobaleZeit < 15; dGlobaleZeit += 0.5) 
 	{
@@ -257,6 +261,53 @@ void vAufgabe_6()
 		vSleep(100);
 	}
 
+}
+
+void vAufgabe_6a()
+{
+	using namespace vertagt;
+	VListe<int> vliste;
+	typedef VListe<int>::iterator vlistit;
+	static std::mt19937 device(0);
+	std::uniform_int_distribution<int> dist(1, 10);
+	for (int i = 0;i < 10;i++)
+	{
+		vliste.push_back(dist(device));
+	}
+	vliste.vAktualisieren();
+    //ausgeben
+	for (vlistit it = vliste.begin();it != vliste.end();it++)
+	{
+		cout << (*it) << '\t';
+	}
+	cout << endl;
+
+	//delete enelemt>5
+	for (vlistit it = vliste.begin();it != vliste.end();it++)
+	{
+		if (*it > 5)
+			vliste.erase(it);
+	}
+	//wieder ausgeben
+	for (vlistit it = vliste.begin();it != vliste.end();it++)
+	{
+		cout << (*it) << '\t';
+	}
+	cout << endl;
+	vliste.vAktualisieren();
+	//wieder*2 ausgeben...@_@
+	for (vlistit it = vliste.begin();it != vliste.end();it++)
+	{
+		cout << (*it) << '\t';
+	}
+	cout << endl;
+	vliste.push_front(dist(device));
+	vliste.push_back(dist(device));
+	vliste.vAktualisieren();
+	for (vlistit it = vliste.begin();it != vliste.end();it++)
+	{
+		cout << (*it) << '\t';
+	}
 }
 
 
