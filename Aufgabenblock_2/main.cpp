@@ -31,8 +31,9 @@ int main()
 
 	//vAufgabe_4();
 	//vAufgabe_5();
-	vAufgabe_6();
 	//vAufgabe_6a();
+	vAufgabe_6();
+	
 
 
 
@@ -230,7 +231,7 @@ void vAufgabe_6()
 	weg1->vAnnahme(move(f5), 2);
 
 	unique_ptr<Fahrzeug> b1 = make_unique<PKW>("BMW1", 50, 1, 200);
-	unique_ptr<Fahrzeug> b2 = make_unique<PKW>("BMW2", 200, 1, 200);
+	unique_ptr<Fahrzeug> b2 = make_unique<PKW>("BMW2", 280, 1, 200);
 	unique_ptr<Fahrzeug> b3 = make_unique<Fahrrad>("Fahrrad3", 20);
 
 	weg2->vAnnahme(move(b1));

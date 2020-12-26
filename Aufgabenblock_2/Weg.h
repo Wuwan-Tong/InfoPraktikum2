@@ -11,8 +11,8 @@ class Weg:public Simulationsobjekt
 private:
 	
 	double p_dLeange;//lange in km
-	//list<unique_ptr<Fahrzeug>> p_pFahrzeuge;//fahrzeuge aktuelle auf dem Weg befinden
-	vertagt::VListe<unique_ptr<Fahrzeug>> p_pFahrzeuge;
+	list<unique_ptr<Fahrzeug>> p_pFahrzeuge;//fahrzeuge aktuelle auf dem Weg befinden
+	//vertagt::VListe<unique_ptr<Fahrzeug>> p_pFahrzeuge;
 	Tempolimit p_eTempolimit;//max. zulaessige Geschwindigkeit
 	
 public:

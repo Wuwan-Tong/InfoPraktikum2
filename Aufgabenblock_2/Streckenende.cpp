@@ -22,6 +22,7 @@ void Streckenende::vBearbeiten()
 		{
 		    (*it)->p_pVerhalten = make_shared<Parken>();
 			p_pWeg.p_pFahrzeuge.erase(it);
+			//p_pWeg.p_pFahrzeuge.vAktualisieren();
 			break;
 		}			
 	}

@@ -1,5 +1,6 @@
 #include "Weg.h"
 #include"Fahrzeug.h"
+#include"vertagt_aktion - Vorlage.h"
 #include<list>
 #include<iomanip>
 #include <iostream>
@@ -98,14 +99,14 @@ void Weg::vAnnahme(unique_ptr<Fahrzeug> fahrzeug_ptr)//fahrende fahrzeug
 {
 	fahrzeug_ptr->vNeueStrecke(*this);
 	p_pFahrzeuge.push_back(move(fahrzeug_ptr));	
-	p_pFahrzeuge.vAktualisieren();
+	//p_pFahrzeuge.vAktualisieren();
 }
 
 void Weg::vAnnahme(unique_ptr<Fahrzeug> fahrzeug_ptr, double pdstart)//parkende fahrzeug
 {
 	fahrzeug_ptr->vNeueStrecke(*this, pdstart);
 	p_pFahrzeuge.push_front(move(fahrzeug_ptr));
-	p_pFahrzeuge.vAktualisieren();
+	//p_pFahrzeuge.vAktualisieren();
 }
 
 string Weg::sGetName() const
@@ -124,10 +125,11 @@ unique_ptr<Fahrzeug> Weg::pAbgabe(const Fahrzeug& fzg)
 	
 	for (auto it = p_pFahrzeuge.begin();it != p_pFahrzeuge.end();it++)
 	{
-		if (&fzg == (*it)))
-		{
+		if (&fzg == (*it).get())
+		{		
 			unique_ptr<Fahrzeug> abgabe = move(*it);
 			p_pFahrzeuge.erase(it);
+			//p_pFahrzeuge.vAktualisieren();
 			return abgabe;
 		}
 	}
