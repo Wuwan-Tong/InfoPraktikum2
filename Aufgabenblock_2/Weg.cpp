@@ -124,7 +124,7 @@ unique_ptr<Fahrzeug> Weg::pAbgabe(const Fahrzeug& fzg)
 	
 	for (auto it = p_pFahrzeuge.begin();it != p_pFahrzeuge.end();it++)
 	{
-		if (&fzg == (*it).get())
+		if (&fzg == (*it)))
 		{
 			unique_ptr<Fahrzeug> abgabe = move(*it);
 			p_pFahrzeuge.erase(it);

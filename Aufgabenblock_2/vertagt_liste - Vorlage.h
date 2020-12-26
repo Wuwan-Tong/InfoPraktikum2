@@ -79,7 +79,7 @@ namespace vertagt
 		void erase(iterator it)
 		{
 			// Aktionselement für PushBack auf Liste erzeugen (hier Iterator statt Objekt !)
-			p_aktionen.push_back(make_unique<VErase<T>>(p_objekte, move(it)));
+			p_aktionen.push_back(make_unique<VErase<T>>(p_objekte, it));
 		}
 
 		// Änderungen auf Objektliste übertragen
