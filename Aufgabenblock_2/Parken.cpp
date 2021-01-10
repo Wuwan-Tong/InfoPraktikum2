@@ -20,11 +20,11 @@ Parken::~Parken()
 
 double Parken::dStrecke(Fahrzeug& aFzg, double pdstart)
 {
-	if (dGlobaleZeit <= p_dStart)
+	if (dGlobaleZeit < p_dStart)
 		return 0.0;
 	else
 	{
-		cout << "Startzeit erreicht" << endl;
+		cout << aFzg.p_sName<< " Startzeit erreicht" << endl;
 		aFzg.p_dZeit = pdstart;
 		throw new Losfahren(aFzg, *p_pWeg);
 	}

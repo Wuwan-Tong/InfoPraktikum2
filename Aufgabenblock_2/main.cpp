@@ -32,8 +32,7 @@ int main()
 	//vAufgabe_4();
 	//vAufgabe_5();
 	//vAufgabe_6a();
-	vAufgabe_6();
-	
+	//vAufgabe_6();
 
 
 
@@ -250,7 +249,7 @@ void vAufgabe_6()
 	//bZeichnePKW("BMW1", "Weg2", 0.3, 50, 100);
 	//bZeichneFahrrad("Fahrrad3", "Weg2", 0.4, 30);
 
-	for (dGlobaleZeit = 0; dGlobaleZeit < 15; dGlobaleZeit += 0.5) 
+	for (dGlobaleZeit = 0; dGlobaleZeit < 5; dGlobaleZeit += 0.5) 
 	{
 		cout << "GlobaleZeit:" << dGlobaleZeit << endl;
 		weg1->vSimulieren();
@@ -277,6 +276,7 @@ void vAufgabe_6a()
 	}
 	vliste.vAktualisieren();
     //ausgeben
+	cout << "create 10 rand number" << endl;
 	for (vlistit it = vliste.begin();it != vliste.end();it++)
 	{
 		cout << (*it) << '\t';
@@ -289,6 +289,7 @@ void vAufgabe_6a()
 		if (*it > 5)
 			vliste.erase(it);
 	}
+	cout << endl<<"after delete element>5, before vAktualisieren()" << endl;
 	//wieder ausgeben
 	for (vlistit it = vliste.begin();it != vliste.end();it++)
 	{
@@ -297,6 +298,7 @@ void vAufgabe_6a()
 	cout << endl;
 	vliste.vAktualisieren();
 	//wieder*2 ausgeben...@_@
+	cout << endl << "after delete element>5, after vAktualisieren()" << endl;
 	for (vlistit it = vliste.begin();it != vliste.end();it++)
 	{
 		cout << (*it) << '\t';
@@ -305,6 +307,7 @@ void vAufgabe_6a()
 	vliste.push_front(dist(device));
 	vliste.push_back(dist(device));
 	vliste.vAktualisieren();
+	cout << endl << "after push front a number and push back a number" << endl;
 	for (vlistit it = vliste.begin();it != vliste.end();it++)
 	{
 		cout << (*it) << '\t';

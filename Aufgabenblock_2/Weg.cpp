@@ -43,7 +43,7 @@ void Weg::vAusgeben(ostream& o)
 void Weg::vKopf()
 {
 	cout << setiosflags(ios::left);
-	cout << setw(6) << "ID" << "|" << setw(10) << "Name" << "|" << setw(20) << "GLaenge"
+	cout << setw(6) << "ID" << "|" << setw(20) << "Name" << "|" << setw(20) << "GLaenge"
 		<< "|" << setw(16) << "Fahrzeuge" << endl;
 	cout << "-------------------------------------------------------------------------------------------------" << endl;
 }

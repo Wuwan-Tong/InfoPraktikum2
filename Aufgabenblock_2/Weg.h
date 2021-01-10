@@ -17,7 +17,7 @@ private:
 	
 public:
 	Weg();
-	Weg(const string pname, double pdleange, Tempolimit ptempolimit= Tempolimit::Autobahn);
+	Weg(const string pname, double pdleange, Tempolimit ptempolimit = Tempolimit::Autobahn);
 	~Weg();
 	void vSimulieren();
 	void vAusgeben()override;
