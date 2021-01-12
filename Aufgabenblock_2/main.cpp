@@ -258,7 +258,7 @@ void vAufgabe_6()
 		weg2->vSimulieren();
 		weg2->vAusgeben();
 		cout << endl;
-		vSleep(100);
+		vSleep(100);//100ms
 	}
 
 }
