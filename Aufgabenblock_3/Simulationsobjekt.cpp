@@ -51,3 +51,20 @@ string Simulationsobjekt::getName()
 {
 	return p_sName;
 }
+
+istream& Simulationsobjekt::vEinlesen(istream& i)
+{
+	//cout << "enter the name: ";
+	i >> p_sName;
+	if (p_sName == "")
+	{
+		throw runtime_error("Name shoule not be empty!!");
+	}
+	return i;
+}
+
+istream& operator>>(istream& i, Simulationsobjekt& f)
+{
+	f.vEinlesen(i);
+	return i;
+}

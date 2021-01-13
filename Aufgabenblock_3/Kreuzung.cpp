@@ -1,6 +1,9 @@
 #include "Kreuzung.h"
 #include"Fahrzeug.h"
 #include"Weg.h"
+#include<iostream>
+
+using namespace std;
 
 Kreuzung::Kreuzung()
 	:Simulationsobjekt(),p_dTankstelle(0.0)
@@ -75,3 +78,14 @@ double Kreuzung::getTankstelle()
 {
 	return p_dTankstelle;
 }
+
+istream& Kreuzung::vEinlesen(istream& i)
+{
+	//i >> p_sName;
+	
+	//cout << "enter the Tankstelle in L: ";
+	Simulationsobjekt::vEinlesen(i) >> p_dTankstelle;
+	return i;
+}
+
+

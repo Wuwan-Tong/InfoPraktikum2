@@ -184,3 +184,13 @@ void Fahrzeug::vNeueStrecke(Weg& weg, double pdstart)
 void Fahrzeug::vZeichen(const Weg&) const
 {
 }
+istream& Fahrzeug::vEinlesen(istream& i)
+{
+	//i >> p_sName;
+	
+	//cout << "enter the MaxGeschwindigkeit in km/h: ";
+	Simulationsobjekt::vEinlesen(i) >> p_dMaxGeschwindigkeit;
+	return i;
+}
+
+

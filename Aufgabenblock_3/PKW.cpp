@@ -105,7 +105,7 @@ void PKW::vAusgeben(ostream& o)
 	o << setiosflags(ios::left) << setw(6) << p_iID
 		<< setw(23) << p_sName
 		<< resetiosflags(ios::left) << setiosflags(ios::fixed) << setprecision(2)
-		<< setw(16) << dGeschwindigkeit()
+		<< setw(16) << p_dMaxGeschwindigkeit//dGeschwindigkeit()
 		<< setw(8) << p_dGesamtStrecke
 		<< setiosflags(ios::fixed) << setprecision(2)
 		<< setw(20) << p_dGesamtStrecke / 100 * p_dVerbrauch
@@ -132,3 +132,14 @@ ostream& operator<<(ostream& o, PKW& f)
 	f.vAusgeben(o);
 	return o;
 }
+
+
+istream& PKW::vEinlesen(istream& i)
+{
+	//i >> p_sName;
+	//cout << "enter the Verbrauch in 1/100km and the Tankvolumen in L: ";
+	Fahrzeug::vEinlesen(i) >> p_dVerbrauch >> p_dTankvolumen;
+	return i;
+}
+
+

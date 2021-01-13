@@ -18,5 +18,9 @@ public:
 	virtual void vAusgeben(ostream&);
 	virtual bool operator==(Simulationsobjekt&);
 	string getName();
+
+	virtual istream& vEinlesen(istream&);
+
 };
 ostream& operator<<(ostream&, Simulationsobjekt&);//operand kein element der klasse
+istream& operator>>(istream&, Simulationsobjekt&);

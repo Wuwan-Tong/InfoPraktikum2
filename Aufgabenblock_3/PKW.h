@@ -18,5 +18,8 @@ public:
 	void vAusgeben(ostream&)override;
 	double dGeschwindigkeit();
 	void vZeichen(const Weg&)const override;
+
+	virtual istream& vEinlesen(istream&);
 };
 ostream& operator<<(ostream& o, PKW& f);
+//istream& operator>>(istream&, Simulationsobjekt&);

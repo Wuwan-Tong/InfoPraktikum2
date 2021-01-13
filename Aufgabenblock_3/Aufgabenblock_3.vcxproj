@@ -148,6 +148,7 @@
     <ClInclude Include="Parken.h" />
     <ClInclude Include="PKW.h" />
     <ClInclude Include="SimuClient.h" />
+    <ClInclude Include="Simulation.h" />
     <ClInclude Include="Simulationsobjekt.h" />
     <ClInclude Include="Streckenende.h" />
     <ClInclude Include="Tempolimit.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Parken.cpp" />
     <ClCompile Include="PKW.cpp" />
+    <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Simulationsobjekt.cpp" />
     <ClCompile Include="Streckenende.cpp" />
     <ClCompile Include="Verhalten.cpp" />
@@ -176,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SimuClient.dll" />
+    <None Include="VO.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

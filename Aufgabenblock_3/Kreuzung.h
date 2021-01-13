@@ -24,5 +24,7 @@ public:
     void vSimulieren();
     Weg& pZufalligerWeg(Weg&);
     double getTankstelle();
+    virtual istream& vEinlesen(istream&);
 };
+//istream& operator>>(istream&, Simulationsobjekt&);
 

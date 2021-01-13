@@ -11,6 +11,7 @@
 #include<limits>
 #include<random>
 #include"Kreuzung.h"
+#include<fstream>
 
 
 using namespace std;
@@ -23,6 +24,7 @@ void vAufgabe_5();
 void vAufgabe_6();
 void vAufgabe_6a();
 void vAufgabe_7();
+void vAufgabe_8();
 
 extern double dGlobaleZeit = 0.0;
 int main()
@@ -37,7 +39,8 @@ int main()
 	//vAufgabe_6a();
 	//vAufgabe_6();
 
-	vAufgabe_7();
+	//vAufgabe_7();
+	vAufgabe_8();
 
 
 
@@ -377,6 +380,30 @@ void vAufgabe_7()
 		kr4->vSimulieren();
 
 		vSleep(100);//100ms
+	}
+}
+
+void vAufgabe_8()
+{
+	ifstream f("VO.dat");
+	f.exceptions(ios_base::eofbit | ios_base::failbit | ios_base::badbit);
+	PKW p1;
+	Fahrrad f1;
+	Kreuzung k1;
+	try
+	{
+		f >> p1;
+		f >> f1;
+		f >> k1;
+		cout << p1 << endl;
+		cout << f1 << endl;
+		cout << k1 << endl;
+
+	}
+	catch (runtime_error& error)
+	{
+		cout << error.what() << endl;
+		//https://stackoverflow.com/questions/7491877/c-catch-runtime-error
 	}
 }
 

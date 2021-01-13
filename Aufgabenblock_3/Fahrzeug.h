@@ -21,6 +21,7 @@ public:
 	virtual ~Fahrzeug();
 	virtual void vAusgeben();
 	virtual void vAusgeben(ostream&);
+	virtual istream& vEinlesen(istream&);
 	virtual void vKopf();
 	virtual void vSimulieren();
 	virtual double dTanken(double dMenge);
@@ -40,3 +41,4 @@ public:
 };
 ostream& operator<<(ostream&, Fahrzeug&);//3 Operanden sind nicht erlaubt.Wenn innerhalb class Fahrzeug, 
 											   //es gibt 3 Operanden, also ostream&, const Fahrzeug& und this
+
