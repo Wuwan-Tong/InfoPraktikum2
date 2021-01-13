@@ -357,8 +357,8 @@ void vAufgabe_7()
 	kr4->vVerbinde("W44a", "W44b", 130, kr4, kr4, Tempolimit::Landstrasse, false);
 
 	unique_ptr<Fahrzeug> f1 = make_unique<PKW>("F1", 50, 1, 200);
-	unique_ptr<Fahrzeug> f2 = make_unique<PKW>("F2", 200, 1, 200);
-	unique_ptr<Fahrzeug> f3 = make_unique<PKW>("F3", 200, 1, 200);
+	unique_ptr<Fahrzeug> f2 = make_unique<PKW>("F2", 30, 1, 200);
+	unique_ptr<Fahrzeug> f3 = make_unique<PKW>("F3", 80, 1, 200);
 	unique_ptr<Fahrzeug> f4 = make_unique<Fahrrad>("Fahrrad1", 30);
 	unique_ptr<Fahrzeug> f5 = make_unique<Fahrrad>("Fahrrad2", 20);
 
@@ -368,7 +368,7 @@ void vAufgabe_7()
 	kr1->vAnnahme(move(f4), 0);
 	kr1->vAnnahme(move(f5), 1);
 
-	for (dGlobaleZeit = 0; dGlobaleZeit < 5; dGlobaleZeit += 0.5)
+	for (dGlobaleZeit = 0; dGlobaleZeit < 10; dGlobaleZeit += 0.5)
 	{
 		cout << "GlobaleZeit:" << dGlobaleZeit << endl;
 		kr1->vSimulieren();

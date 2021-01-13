@@ -30,6 +30,7 @@ void Streckenende::vBearbeiten()
 			zielKreuzung.vTanken(p_pFahrzeug);
 			nextWeg.vAnnahme(move(*it));
 			p_pWeg.p_pFahrzeuge.erase(it);
+			
 			//p_pWeg.p_pFahrzeuge.vAktualisieren();
 			break;
 		}			

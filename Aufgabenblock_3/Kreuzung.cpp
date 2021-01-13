@@ -54,7 +54,7 @@ Weg& Kreuzung::pZufalligerWeg(Weg& weg)
 	
 	Weg& rueckweg = weg.getRueckWeg();
 	int r = rand() % p_pWege.size();
-	if (r == 1)
+	if (p_pWege.size() == 1)
 	{
 		return rueckweg;
 	}

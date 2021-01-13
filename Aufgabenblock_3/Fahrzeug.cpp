@@ -113,6 +113,7 @@ void Fahrzeug::vSimulieren()
 	p_dGesamtZeit += dZeitIntervall;
 	p_dZeit = dGlobaleZeit;
 	Weg* weg = p_pVerhalten->get_weg();
+	//weg -> setVirtuelleSchranke(dTempStrecke + p_dAbschnittStrecke);
 	vZeichen(*weg);
 }
 

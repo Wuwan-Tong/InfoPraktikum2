@@ -173,3 +173,8 @@ void Weg::setRueckWeg(weak_ptr<Weg> weg)
 {
 	p_pRueckWeg = weg;
 }
+
+void Weg::setVirtuelleSchranke(double vs)
+{
+	p_dVirtuelleSchranke = vs;
+}

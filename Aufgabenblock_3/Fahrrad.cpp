@@ -51,7 +51,7 @@ void Fahrrad::vZeichen(const Weg& weg) const
 {
     double geschwindigkeit = dGeschwindigkeit();
 
-    bZeichneFahrrad(p_sName, weg.sGetName(), max(1.0,p_dGesamtStrecke / weg.dGetLeange()), geschwindigkeit);
+    bZeichneFahrrad(p_sName, weg.sGetName(), p_dAbschnittStrecke / weg.dGetLeange(), geschwindigkeit);
 }
 
 

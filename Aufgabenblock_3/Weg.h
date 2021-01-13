@@ -45,5 +45,6 @@ public:
 	Weg& getRueckWeg();
 	Kreuzung& getZielKreuzung();
 	void setRueckWeg(weak_ptr<Weg>);
+	void setVirtuelleSchranke(double vs);
 
 };

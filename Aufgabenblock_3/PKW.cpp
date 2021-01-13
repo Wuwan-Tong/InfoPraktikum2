@@ -124,8 +124,8 @@ double PKW::dGeschwindigkeit()
 void PKW::vZeichen(const Weg& weg) const
 {
 	//bZeichnePKW("F1", "Weg1", 0.1, 50, 100);
-	double posi = max(1.0, p_dGesamtStrecke / weg.dGetLeange());
-	bZeichnePKW(p_sName, weg.sGetName(), posi, p_dMaxGeschwindigkeit, p_dTankinhalt);
+	//double posi = min(1.0, p_dAbschnittStrecke / weg.dGetLeange());
+	bZeichnePKW(p_sName, weg.sGetName(), p_dAbschnittStrecke / weg.dGetLeange(), p_dMaxGeschwindigkeit, p_dTankinhalt);
 }
 ostream& operator<<(ostream& o, PKW& f)
 {
