@@ -139,6 +139,7 @@ istream& PKW::vEinlesen(istream& i)
 	//i >> p_sName;
 	//cout << "enter the Verbrauch in 1/100km and the Tankvolumen in L: ";
 	Fahrzeug::vEinlesen(i) >> p_dVerbrauch >> p_dTankvolumen;
+	p_dTankinhalt = p_dTankvolumen / 2;
 	return i;
 }
 

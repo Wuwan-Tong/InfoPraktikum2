@@ -117,5 +117,7 @@
   <ItemGroup>
     <None Include="SimuClient.dll" />
     <None Include="VO.dat" />
+    <None Include="Simu.dat" />
+    <None Include="SimuDisplay.dat" />
   </ItemGroup>
 </Project>

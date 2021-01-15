@@ -10,21 +10,21 @@ using namespace std;
 Weg::Weg()
 	:Simulationsobjekt(), p_dLeange(0), p_eTempolimit(Tempolimit::Autobahn)
 {
-	cout << "Weg erzeugt:" << endl;
+	cout << "Weg erzeugt:" <<p_sName<< endl;
 }
 
 
 Weg::Weg(const string pname, double pdleange, Tempolimit ptempolimit, bool pUeberholverbot)
 	: Simulationsobjekt(pname), p_dLeange(pdleange), p_eTempolimit(ptempolimit), p_bUeberholverbot(pUeberholverbot)
 {
-	cout << "Weg erzeugt:" << endl;
+	cout << "Weg erzeugt:" << p_sName << endl;
 }
 
 Weg::Weg(const string pname, double pdleange, weak_ptr<Kreuzung> pKreuzung, Tempolimit ptempolimit, bool pUeberholverbot)
 	: Simulationsobjekt(pname), p_dLeange(pdleange),
 	p_pZielKreuzung(pKreuzung), p_eTempolimit(ptempolimit), p_bUeberholverbot(pUeberholverbot)
 {
-	cout << "Weg erzeugt:" << endl;
+	cout << "Weg erzeugt:" << p_sName << endl;
 }
 
 Weg::~Weg()

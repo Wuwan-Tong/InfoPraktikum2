@@ -12,6 +12,7 @@
 #include<random>
 #include"Kreuzung.h"
 #include<fstream>
+#include"Simulation.h"
 
 
 using namespace std;
@@ -25,6 +26,8 @@ void vAufgabe_6();
 void vAufgabe_6a();
 void vAufgabe_7();
 void vAufgabe_8();
+void vAufgabe_9();
+void vAufgabe_9a();
 
 extern double dGlobaleZeit = 0.0;
 int main()
@@ -40,8 +43,9 @@ int main()
 	//vAufgabe_6();
 
 	//vAufgabe_7();
-	vAufgabe_8();
-
+	//vAufgabe_8();
+	//vAufgabe_9();
+	vAufgabe_9a();
 
 
 
@@ -407,4 +411,39 @@ void vAufgabe_8()
 	}
 }
 
+/*
+schluesselwort shoule be one of (KREUZUNG, PKW, FAHRRAD, STRASSE)!!  Line: 11
+iTempolimit should be 1,2 or 3!!  Line: 14
+iTempolimit should be 1,2 or 3!! line: 16
+*/
+//line 11 deleted, line 12 is now line 11, line 13 is now line 12 and so on.
+void vAufgabe_9()
+{
+	Simulation simulation;
+	fstream f("Simu.dat");
+	try
+	{
+		simulation.vEinlesen(f);
+	}
+	catch (runtime_error& error)
+	{
+		cout << error.what() << endl;
+	}
+	simulation.vSimulieren(5, 0.5);
+}
+void vAufgabe_9a()
+{
+	Simulation simulation;
+	fstream f("SimuDisplay.dat");
+	try
+	{
+		simulation.vEinlesen(f,true);
+	}
+	catch (runtime_error& error)
+	{
+		cout << error.what() << endl;
+	}
+	simulation.vSimulieren(15, 0.5);
+	vBeendeGrafik();
+}
 

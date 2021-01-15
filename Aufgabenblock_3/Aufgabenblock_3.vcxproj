@@ -177,7 +177,9 @@
     <ClCompile Include="Weg.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Simu.dat" />
     <None Include="SimuClient.dll" />
+    <None Include="SimuDisplay.dat" />
     <None Include="VO.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
