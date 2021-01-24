@@ -443,7 +443,7 @@ void vAufgabe_9a()
 	{
 		cout << error.what() << endl;
 	}
-	simulation.vSimulieren(15, 0.5);
+	simulation.vSimulieren(10, 0.05);
 	vBeendeGrafik();
 }
 
