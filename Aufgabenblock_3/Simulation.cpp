@@ -316,6 +316,7 @@ void Simulation::vSimulieren(double dDauer, double dZeitschritt)
 {
     for (dGlobaleZeit = 0;dGlobaleZeit <= dDauer; dGlobaleZeit += dZeitschritt)
     {
+        vSetzeZeit(dGlobaleZeit);
         vSimulieren();
     }
 }
